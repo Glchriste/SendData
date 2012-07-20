@@ -83,14 +83,18 @@
 
 - (void) requestCapture:(id)sender{
     NSString *msg = @"capture";
-    [dataSession sendData:[msg dataUsingEncoding: NSASCIIStringEncoding] toPeers:dataPeers withDataMode:GKSendDataReliable error:nil];
+    
+    //[dataSession sendData:[msg dataUsingEncoding: NSASCIIStringEncoding] toPeers:dataPeers withDataMode:GKSendDataReliable error:nil];
+    
+    //Tells all the connected clients to take a picture.
+    [dataSession sendDataToAllPeers:[msg dataUsingEncoding:NSASCIIStringEncoding] withDataMode:GKSendDataReliable error:nil];
 
     //Code to bring up camera view and take a picture.
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
     AVCamViewController *cam = (AVCamViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AVCam"];
     [self presentModalViewController:cam animated:YES];
     
-    
+    //Takes a picture on the server iDevice (the one you're using, if that's you).
     /*________________________________
      | Takes a photo programmatically. |
      --------------------------------*/
@@ -98,6 +102,7 @@
     [cam capturePicture]; //Capture still image.
     
 }
+
 
 
 
@@ -172,8 +177,11 @@
         //Other Device Found, attempt to connect.
         case GKPeerStateAvailable:
         {
-            NSLog(@"Client available...");
-            [session connectToPeer:peerID withTimeout:0];
+
+                //A client device in the area was found. Connect.
+                NSLog(@"Client available...");
+                [session connectToPeer:peerID withTimeout:0];
+
         }
             break;
         //Connecting

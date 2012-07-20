@@ -16,6 +16,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="55i-mv-P3C"/>
                 </viewController>
             </objects>
         </scene>
@@ -31,6 +32,37 @@
                             <view contentMode="scaleToFill" id="Y2N-TK-KRZ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="yma-2d-4h4">
+                                        <rect key="frame" x="0.0" y="416" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <items>
+                                            <barButtonItem title="&lt;--" id="utx-1N-onG">
+                                                <connections>
+                                                    <segue destination="2" kind="push" id="edm-fw-Z5c"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="3P2-db-ZdF"/>
+                                            <barButtonItem title="Cam" id="lGa-Hm-d0k">
+                                                <connections>
+                                                    <action selector="toggleCamera:" destination="YVN-sW-QjM" id="G1O-2f-m7D"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="kZ4-fh-Te9"/>
+                                            <barButtonItem title="Cap" id="YAG-Oa-eEZ">
+                                                <connections>
+                                                    <action selector="captureStillImage:" destination="YVN-sW-QjM" id="PzJ-Td-nqM"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="OQv-tb-d8p"/>
+                                            <barButtonItem title="Rec" id="gT6-Bi-DET">
+                                                <connections>
+                                                    <action selector="toggleRecording:" destination="YVN-sW-QjM" id="Dbv-wd-FA5"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </items>
+                                    </toolbar>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
