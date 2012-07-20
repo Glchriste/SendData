@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1906" systemVersion="11A511" targetRuntime="iOS.CocoaTouch" nextObjectID="6" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
     <dependencies>
+        <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="902"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
         <scene sceneID="5">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -12,13 +14,55 @@
                     <view key="view" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
             </objects>
         </scene>
+        <!--AVCam-->
+        <scene sceneID="nr7-hk-GEq">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9KK-a8-F2g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="AVCam" title="AVCam" id="YVN-sW-QjM" userLabel="AVCam" customClass="AVCamViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qd4-x3-GhE">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="Y2N-TK-KRZ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="videoPreviewView" destination="Y2N-TK-KRZ" id="oI2-1c-u6G"/>
+                        <outlet property="view" destination="qd4-x3-GhE" id="dqC-RJ-k7n"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="138" y="666"/>
+        </scene>
     </scenes>
+    <classes>
+        <class className="AVCamViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AVCamViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="captureStillImage:"/>
+                <relationship kind="action" name="toggleCamera:"/>
+                <relationship kind="action" name="toggleRecording:"/>
+                <relationship kind="outlet" name="cameraToggleButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="focusModeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="recordButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="stillButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="videoPreviewView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="CSAILViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CSAILViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

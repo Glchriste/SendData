@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F52C51EA15B6A58400DEB560 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F52C51E915B6A58400DEB560 /* GameKit.framework */; };
+		F52C51F115B7441B00DEB560 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F52C51F015B7441B00DEB560 /* AVFoundation.framework */; };
+		F52C51F315B7442400DEB560 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F52C51F215B7442400DEB560 /* QuartzCore.framework */; };
+		F52C51F515B7442C00DEB560 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F52C51F415B7442C00DEB560 /* MediaPlayer.framework */; };
+		F52C51F715B7443400DEB560 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F52C51F615B7443400DEB560 /* CoreMedia.framework */; };
+		F52C51F915B7443B00DEB560 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F52C51F815B7443B00DEB560 /* CoreVideo.framework */; };
+		F52C51FB15B7444300DEB560 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F52C51FA15B7444300DEB560 /* MobileCoreServices.framework */; };
+		F52C51FD15B7444C00DEB560 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F52C51FC15B7444C00DEB560 /* AssetsLibrary.framework */; };
+		F52C51FF15B7445300DEB560 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F52C51FE15B7445300DEB560 /* ImageIO.framework */; };
+		F52C520315B7449700DEB560 /* AVCamUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F52C520215B7449700DEB560 /* AVCamUtilities.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F52C520615B744C400DEB560 /* AVCamRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = F52C520515B744C400DEB560 /* AVCamRecorder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F52C520915B744EE00DEB560 /* AVCamCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F52C520815B744EE00DEB560 /* AVCamCaptureManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F52C520C15B7451E00DEB560 /* AVCamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F52C520B15B7451E00DEB560 /* AVCamViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F52C521215B745D100DEB560 /* AVCamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F52C521115B745D100DEB560 /* AVCamViewController.xib */; };
 		F5F7ABEC15B6A41E0027DCB6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F7ABEB15B6A41E0027DCB6 /* UIKit.framework */; };
 		F5F7ABEE15B6A41E0027DCB6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F7ABED15B6A41E0027DCB6 /* Foundation.framework */; };
 		F5F7ABF015B6A41E0027DCB6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F7ABEF15B6A41E0027DCB6 /* CoreGraphics.framework */; };
@@ -34,25 +48,43 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F52C51E915B6A58400DEB560 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		F52C51F015B7441B00DEB560 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		F52C51F215B7442400DEB560 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F52C51F415B7442C00DEB560 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		F52C51F615B7443400DEB560 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		F52C51F815B7443B00DEB560 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		F52C51FA15B7444300DEB560 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		F52C51FC15B7444C00DEB560 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		F52C51FE15B7445300DEB560 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		F52C520115B7449700DEB560 /* AVCamUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamUtilities.h; sourceTree = "<group>"; };
+		F52C520215B7449700DEB560 /* AVCamUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamUtilities.m; sourceTree = "<group>"; };
+		F52C520415B744C400DEB560 /* AVCamRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamRecorder.h; sourceTree = "<group>"; };
+		F52C520515B744C400DEB560 /* AVCamRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamRecorder.m; sourceTree = "<group>"; };
+		F52C520715B744EE00DEB560 /* AVCamCaptureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamCaptureManager.h; sourceTree = "<group>"; };
+		F52C520815B744EE00DEB560 /* AVCamCaptureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamCaptureManager.m; sourceTree = "<group>"; };
+		F52C520A15B7451E00DEB560 /* AVCamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamViewController.h; sourceTree = "<group>"; };
+		F52C520B15B7451E00DEB560 /* AVCamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamViewController.m; sourceTree = "<group>"; };
+		F52C521115B745D100DEB560 /* AVCamViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AVCamViewController.xib; path = ../AVCamViewController.xib; sourceTree = "<group>"; };
 		F5F7ABE715B6A41E0027DCB6 /* SendData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SendData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5F7ABEB15B6A41E0027DCB6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F5F7ABED15B6A41E0027DCB6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F5F7ABEF15B6A41E0027DCB6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		F5F7ABF315B6A41E0027DCB6 /* SendData-Info.plist */ = {isa = PBXFileReference; path = "SendData-Info.plist"; sourceTree = "<group>"; };
+		F5F7ABF315B6A41E0027DCB6 /* SendData-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SendData-Info.plist"; sourceTree = "<group>"; };
 		F5F7ABF515B6A41E0027DCB6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F5F7ABF715B6A41E0027DCB6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F5F7ABF915B6A41E0027DCB6 /* SendData-Prefix.pch */ = {isa = PBXFileReference; path = "SendData-Prefix.pch"; sourceTree = "<group>"; };
-		F5F7ABFA15B6A41E0027DCB6 /* CSAILAppDelegate.h */ = {isa = PBXFileReference; path = CSAILAppDelegate.h; sourceTree = "<group>"; };
+		F5F7ABF915B6A41E0027DCB6 /* SendData-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SendData-Prefix.pch"; sourceTree = "<group>"; };
+		F5F7ABFA15B6A41E0027DCB6 /* CSAILAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSAILAppDelegate.h; sourceTree = "<group>"; };
 		F5F7ABFB15B6A41E0027DCB6 /* CSAILAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSAILAppDelegate.m; sourceTree = "<group>"; };
 		F5F7ABFE15B6A41E0027DCB6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		F5F7AC0115B6A41E0027DCB6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		F5F7AC0315B6A41E0027DCB6 /* CSAILViewController.h */ = {isa = PBXFileReference; path = CSAILViewController.h; sourceTree = "<group>"; };
+		F5F7AC0315B6A41E0027DCB6 /* CSAILViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSAILViewController.h; sourceTree = "<group>"; };
 		F5F7AC0415B6A41E0027DCB6 /* CSAILViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSAILViewController.m; sourceTree = "<group>"; };
 		F5F7AC0B15B6A41E0027DCB6 /* SendDataTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SendDataTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5F7AC0C15B6A41E0027DCB6 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		F5F7AC1415B6A41E0027DCB6 /* SendDataTests-Info.plist */ = {isa = PBXFileReference; path = "SendDataTests-Info.plist"; sourceTree = "<group>"; };
+		F5F7AC1415B6A41E0027DCB6 /* SendDataTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SendDataTests-Info.plist"; sourceTree = "<group>"; };
 		F5F7AC1615B6A41E0027DCB6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		F5F7AC1815B6A41E0027DCB6 /* SendDataTests.h */ = {isa = PBXFileReference; path = SendDataTests.h; sourceTree = "<group>"; };
+		F5F7AC1815B6A41E0027DCB6 /* SendDataTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SendDataTests.h; sourceTree = "<group>"; };
 		F5F7AC1915B6A41E0027DCB6 /* SendDataTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SendDataTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,6 +93,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F52C51FF15B7445300DEB560 /* ImageIO.framework in Frameworks */,
+				F52C51FD15B7444C00DEB560 /* AssetsLibrary.framework in Frameworks */,
+				F52C51FB15B7444300DEB560 /* MobileCoreServices.framework in Frameworks */,
+				F52C51F915B7443B00DEB560 /* CoreVideo.framework in Frameworks */,
+				F52C51F715B7443400DEB560 /* CoreMedia.framework in Frameworks */,
+				F52C51F515B7442C00DEB560 /* MediaPlayer.framework in Frameworks */,
+				F52C51F315B7442400DEB560 /* QuartzCore.framework in Frameworks */,
+				F52C51F115B7441B00DEB560 /* AVFoundation.framework in Frameworks */,
+				F52C51EA15B6A58400DEB560 /* GameKit.framework in Frameworks */,
 				F5F7ABEC15B6A41E0027DCB6 /* UIKit.framework in Frameworks */,
 				F5F7ABEE15B6A41E0027DCB6 /* Foundation.framework in Frameworks */,
 				F5F7ABF015B6A41E0027DCB6 /* CoreGraphics.framework in Frameworks */,
@@ -80,6 +121,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F52C520015B7445F00DEB560 /* AVCam */ = {
+			isa = PBXGroup;
+			children = (
+				F52C521115B745D100DEB560 /* AVCamViewController.xib */,
+				F52C520115B7449700DEB560 /* AVCamUtilities.h */,
+				F52C520215B7449700DEB560 /* AVCamUtilities.m */,
+				F52C520415B744C400DEB560 /* AVCamRecorder.h */,
+				F52C520515B744C400DEB560 /* AVCamRecorder.m */,
+				F52C520715B744EE00DEB560 /* AVCamCaptureManager.h */,
+				F52C520815B744EE00DEB560 /* AVCamCaptureManager.m */,
+				F52C520A15B7451E00DEB560 /* AVCamViewController.h */,
+				F52C520B15B7451E00DEB560 /* AVCamViewController.m */,
+			);
+			name = AVCam;
+			sourceTree = "<group>";
+		};
 		F5F7ABDC15B6A41E0027DCB6 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +159,15 @@
 		F5F7ABEA15B6A41E0027DCB6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F52C51FE15B7445300DEB560 /* ImageIO.framework */,
+				F52C51FC15B7444C00DEB560 /* AssetsLibrary.framework */,
+				F52C51FA15B7444300DEB560 /* MobileCoreServices.framework */,
+				F52C51F815B7443B00DEB560 /* CoreVideo.framework */,
+				F52C51F615B7443400DEB560 /* CoreMedia.framework */,
+				F52C51F415B7442C00DEB560 /* MediaPlayer.framework */,
+				F52C51F215B7442400DEB560 /* QuartzCore.framework */,
+				F52C51F015B7441B00DEB560 /* AVFoundation.framework */,
+				F52C51E915B6A58400DEB560 /* GameKit.framework */,
 				F5F7ABEB15B6A41E0027DCB6 /* UIKit.framework */,
 				F5F7ABED15B6A41E0027DCB6 /* Foundation.framework */,
 				F5F7ABEF15B6A41E0027DCB6 /* CoreGraphics.framework */,
@@ -113,6 +179,7 @@
 		F5F7ABF115B6A41E0027DCB6 /* SendData */ = {
 			isa = PBXGroup;
 			children = (
+				F52C520015B7445F00DEB560 /* AVCam */,
 				F5F7ABFA15B6A41E0027DCB6 /* CSAILAppDelegate.h */,
 				F5F7ABFB15B6A41E0027DCB6 /* CSAILAppDelegate.m */,
 				F5F7ABFD15B6A41E0027DCB6 /* MainStoryboard_iPhone.storyboard */,
@@ -229,6 +296,7 @@
 				F5F7ABF615B6A41E0027DCB6 /* InfoPlist.strings in Resources */,
 				F5F7ABFF15B6A41E0027DCB6 /* MainStoryboard_iPhone.storyboard in Resources */,
 				F5F7AC0215B6A41E0027DCB6 /* MainStoryboard_iPad.storyboard in Resources */,
+				F52C521215B745D100DEB560 /* AVCamViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +334,10 @@
 				F5F7ABF815B6A41E0027DCB6 /* main.m in Sources */,
 				F5F7ABFC15B6A41E0027DCB6 /* CSAILAppDelegate.m in Sources */,
 				F5F7AC0515B6A41E0027DCB6 /* CSAILViewController.m in Sources */,
+				F52C520315B7449700DEB560 /* AVCamUtilities.m in Sources */,
+				F52C520615B744C400DEB560 /* AVCamRecorder.m in Sources */,
+				F52C520915B744EE00DEB560 /* AVCamCaptureManager.m in Sources */,
+				F52C520C15B7451E00DEB560 /* AVCamViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +517,7 @@
 				F5F7AC1F15B6A41E0027DCB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F5F7AC2015B6A41E0027DCB6 /* Build configuration list for PBXNativeTarget "SendDataTests" */ = {
 			isa = XCConfigurationList;
@@ -453,6 +526,7 @@
 				F5F7AC2215B6A41E0027DCB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
