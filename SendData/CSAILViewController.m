@@ -101,7 +101,7 @@
     
 }
 
-// Function to receive data when sent from peer
+//Function to receive data when sent from peer
 - (void)receiveData:(NSData *)data fromPeer:(NSString *)peer inSession: (GKSession *)session context:(void *)context
 {
 	//Convert received NSData to NSString to display
