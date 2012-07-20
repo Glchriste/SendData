@@ -7,18 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
-//1. Import GameKit Framework
+//A. Import GameKit Framework
 #import <GameKit/GameKit.h>
-//2. Subclass GKSessionDelegate and GKPeerPickerControllerDelegate
-//      GKSessionDelegate - Used to maintain Sessions
-//      GKPeerPickerControllerDelegate - Gives an Apple provided peer picker,
+//B. Subclass GKSessionDelegate and GKPeerPickerControllerDelegate
+//      GKSessionDelegate: Used to maintain Sessions
+//      GKPeerPickerControllerDelegate: Gives an Apple provided peer picker,
 //            where you can look for other devices using the same apps to connect with.
+//            For now, we actually won't use this and will implement our own UI elements.
+//            This is because we are using a client-server model, which the PeerPickerController does not work with.
+//            Why? The client-server model allows ≥ 3 connections simultaneously, where as the peer-to-peer model only
+//            allows 2 devices to connect at once.
+
 @interface CSAILViewController : UIViewController <GKSessionDelegate, GKPeerPickerControllerDelegate>{
-//3. Create the following objects.
+//C. Create the following objects.
     //Connection session.
     GKSession *dataSession;
-    //PeerPicker Object
-    GKPeerPickerController *dataPicker;
+
     //Array of peers connected
     NSMutableArray *dataPeers;
     
@@ -27,9 +31,8 @@
 }
 
 @property (retain) GKSession *dataSession;
-//@property (nonatomic, retain) IBOutlet UIButton *seekiOSCameras;
 
-//4. Methods to connect and send data.
+//D. Methods to connect and send data.
 - (void) connectToPeers:(id)sender;
 - (void) requestCapture:(id)sender;
 

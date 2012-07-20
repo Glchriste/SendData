@@ -8,15 +8,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	dataPicker = [[GKPeerPickerController alloc] init];
-	dataPicker.delegate = self;
-	
-	//There are 2 modes of connection type 
-	// - GKPeerPickerConnectionTypeNearby via BlueTooth
-	// - GKPeerPickerConnectionTypeOnline via Internet
-	// We will use Bluetooth Connectivity for this example
-	
-	dataPicker.connectionTypesMask = GKPeerPickerConnectionTypeNearby;
+    //The array storing connected devices.
 	dataPeers=[[NSMutableArray alloc] init];
 	
 	// Create the buttons
@@ -37,7 +29,7 @@
 	
 }
 
-// Connect to other peers by displayign the GKPeerPicker 
+// Connect to other peers in the area that are detected (uses BlueTooth).
 - (void) connectToPeers:(id) sender{
     if([sender tag]==11)
     {
@@ -46,24 +38,18 @@
     else {
         isHost = NO;
     }
-    
-	//[dataPicker show];
-    
-    //Globals *globals = [Globals shareData];
-    
-    // Set this up as a server
+
+    //Set this up as a server
     if (isHost) {
         GKSession *session = [[GKSession alloc] initWithSessionID:@"com.grace.senddata" displayName:@"Server" sessionMode:GKSessionModeServer];
         self.dataSession = session;
-        //self.dataSession.available = YES;
         session.delegate = self;
         session.available = YES;       
         NSLog(@"Setting Server Session Peer:%@",  session.peerID);
-        //[self.dataSession setDataReceiveHandler:self withContext:nil];
-        //globals.localSession = session;
+
     } 
     
-    // or set it up as a client
+    //Or set it up as a client
     else {
         GKSession *session = [[GKSession alloc] initWithSessionID:@"com.grace.senddata" displayName:nil sessionMode:GKSessionModeClient];
         self.dataSession = session;
@@ -71,12 +57,10 @@
         session.delegate = self;
         session.available = YES;
         NSLog(@"Setting CLIENT Session Peer:%@", session.peerID);
-        //globals.localSession = session;
         [self.dataSession setDataReceiveHandler:self withContext:nil];
     }
     
      self.dataSession.available = YES;
-    //[self.dataSession setDataReceiveHandler:self withContext:nil];
 }
 
 
@@ -84,6 +68,7 @@
 - (void) requestCapture:(id)sender{
     NSString *msg = @"capture";
     
+    //Send msg to one device.
     //[dataSession sendData:[msg dataUsingEncoding: NSASCIIStringEncoding] toPeers:dataPeers withDataMode:GKSendDataReliable error:nil];
     
     //Tells all the connected clients to take a picture.
@@ -94,7 +79,7 @@
     AVCamViewController *cam = (AVCamViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AVCam"];
     [self presentModalViewController:cam animated:YES];
     
-    //Takes a picture on the server iDevice (the one you're using, if that's you).
+    //Takes a picture on the server iOS device (the one you're using, if that's you).
     /*________________________________
      | Takes a photo programmatically. |
      --------------------------------*/
@@ -103,39 +88,6 @@
     
 }
 
-
-
-
-- (void)dealloc {
-	//[dataPeers release];
-    //[super dealloc];
-}
-
-#pragma mark -
-#pragma mark GKPeerPickerControllerDelegate
-
-
-// This creates a unique Connection Type for this particular applictaion
-/*- (GKSession *)peerPickerController:(GKPeerPickerController *)picker sessionForConnectionType:(GKPeerPickerConnectionType)type{
-	// Create a session with a unique session ID - displayName:nil = Takes the iPhone Name
-    GKSession* session = [[GKSession alloc] initWithSessionID:@"com.grace.senddata" displayName:nil sessionMode:GKSessionModePeer];
-
-    return session;
-}*/
-
-// Tells us that the peer was connected
-/*- (void)peerPickerController:(GKPeerPickerController *)picker didConnectPeer:(NSString *)peerID toSession:(GKSession *)session{
-	
-	// Get the session and assign it locally
-    self.dataSession = session;
-    session.delegate = self;
-    
-    //No need of teh picekr anymore
-	picker.delegate = nil;
-    [picker dismiss];
-    //[picker autorelease];
-}
-*/
 // Function to receive data when sent from peer
 - (void)receiveData:(NSData *)data fromPeer:(NSString *)peer inSession: (GKSession *)session context:(void *)context
 {
@@ -146,6 +98,7 @@
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Data Received" message:whatDidIGet delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
 	[alert show];
     
+    //If the msg was to take a picture.
     if([whatDidIGet isEqualToString:@"capture"])
     {
         //Code to bring up camera view and take a picture.
@@ -160,10 +113,7 @@
         [cam capturePicture]; //Capture still image.
         
     }
-    
-    
-	//[alert release];
-	//[whatDidIget release];
+
 }
 
 #pragma mark -
@@ -178,7 +128,7 @@
         case GKPeerStateAvailable:
         {
 
-                //A client device in the area was found. Connect.
+                //A device in the area was found. Connect.
                 NSLog(@"Client available...");
                 [session connectToPeer:peerID withTimeout:0];
 
@@ -190,27 +140,25 @@
             NSLog(@"Client Connecting...");
         }
             break;
-        //Client device connected to server.
+        //Device connected to server.
         case GKPeerStateConnected:
         {
             NSLog(@"Client connected!");
-            // Used to acknowledge that we will be sending data
+            //Used to acknowledge that we will be sending data
             [session setDataReceiveHandler:self withContext:nil];
             
-            // Add the peer to the Array
+            //Add the peer to the dataPeers Array
             [dataPeers addObject:peerID];
         
             NSString *str = [NSString stringWithFormat:@"Connected with %@",[session displayNameForPeer:peerID]];
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connected" message:str delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
-            //[alert release];
-		
-            // Used to acknowledge that we will be sending data
-            [session setDataReceiveHandler:self withContext:nil];
-		
+            
+            //Remove the connection buttons.
             [[self.view viewWithTag:11] removeFromSuperview];
             [[self.view viewWithTag:12] removeFromSuperview];
-		
+            
+            //Add capture request button. When pressed, all devices will take a picture.
             UIButton *btnRequest = [UIButton buttonWithType:UIButtonTypeRoundedRect];
             [btnRequest addTarget:self action:@selector(requestCapture:) forControlEvents:UIControlEventTouchUpInside];
             [btnRequest setTitle:@"Request Camera Shot" forState:UIControlStateNormal];
@@ -219,13 +167,13 @@
             [self.view addSubview:btnRequest];
         }
             break;
-        //Client disconnected.
+        //Device disconnected.
         case GKPeerStateDisconnected:
         {
             NSLog(@"Client Disconnected.");
         }
             break;
-        //Client unavailable.
+        //Device unavailable.
         case GKPeerStateUnavailable:
         {
             NSLog(@"Client is unavailable.");
@@ -241,9 +189,11 @@
     NSLog(@"%@", peerID);
     NSString * peerName = [session displayNameForPeer:peerID];
     NSLog(@"%@", peerName);
+    
+    //If you want to implement acceptance/rejection of connections, use this template. If not, ignore.
     /*UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection Request" message:[NSString stringWithFormat:@"The Client %@ is trying to connect.", peerName] delegate:self cancelButtonTitle:@"Decline" otherButtonTitles:@"Accept", nil];
     [alert show];
-    //[alert release];
+
     if(selection == @"accept"){
         [session acceptConnectionFromPeer:peerID error:nil];
     }else{
